@@ -1,0 +1,184 @@
+<div class="intro"></div>
+
+<!-- categories -->
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <a href="/Categories" class="col text-center category__link">
+                <img src="/img/food8.png"class="hover-zoom img-fluid shadow2-strong rounded" 
+                loading="lazy"    
+                alt="food">
+            </a>
+            <p class="pt-1">American Food</p>
+        </div>
+        
+        <!-- db collection -->
+        <% if(categories != '') { %>
+            <% categories.forEach(function(category, index){ %>
+            <div class="col-md">
+                <a href="/Categories/<%= category._id %>" class="col text-center category__link">
+                    <img src="/img/<%- category.image %>"class="hover-zoom img-fluid shadow2-strong rounded" 
+                    loading="lazy"    
+                    alt="<%- category.name %>">
+                </a>
+                <p class="pt-1"><%- category.name %></p>
+            </div>
+            <% }) %>
+        <% } %>
+        <!-- db collection -->
+
+        <div class="col-md">
+            <a href="/Categories" class="col text-center category__link">
+                <img src="/img/view-all.png" class="max hover-zoom img-fluid shadow2-strong rounded" 
+                loading="lazy"    
+                alt="view all">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- categories end -->
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md mt-3">
+            <img src="/img/food5.png" class="img-fluid" alt="food">
+        </div>
+        <div class="col-md mt-3">
+            <div class="p-3">
+                <h1 class="display-4">
+                    Food Critque'
+                </h1>
+                <h1>Recipes From Local People</h1>
+                <a href="mailto:stephenbrooks714@gmail.com" class="btn btn-info btn-lg">more info</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card card-bg p-2">
+        <h1 class="display-4">Latest Articles</h1>
+        <p class="card-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro animi blanditiis quisquam in, laborum a cumque vitae eligendi dolor nobis ea labore fugiat. Voluptas fugiat blanditiis iure, fugit aliquid voluptate?
+        </p>
+        <p class="card-footer">
+            UPDATE August 12, 2020
+        </p>
+    </div>
+</div>
+
+
+
+<!-- latest recipes -->
+<div class="container mt-5">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Latest Recipes</h2>
+        <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row text-center">
+      
+        <% if(food != '') { %>
+            <% food.latest.forEach(function(recipe, index){ %>
+            <div class="col-md">
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <img src="/uploads/<%= recipe.image %>"class="hover-zoom img-fluid shadow2-strong max-img rounded" 
+                    loading="lazy"    
+                    alt="<%= recipe.name %>">
+                </a>
+                <p class="pt-1"><%= recipe.name %></p>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No items found</p>
+        <% } %>
+
+    </div>
+
+</div>
+<!-- latest recipes -->
+
+<!-- latest recipes -->
+<div class="container mt-5">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Popular Recipes</h2>
+        <a href="/categories/bbq" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row text-center">
+      
+        <% if(typeof food.bbq !== 'undefined' && food.bbq.length > 0) { %>
+            <% food.bbq.forEach(function(recipe, index){ %>
+            <div class="col-md">
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <img src="/uploads/<%= recipe.image %>"class="hover-zoom img-fluid shadow2-strong max-img rounded" 
+                    loading="lazy"    
+                    alt="<%= recipe.name %>">
+                </a>
+                <p class="pt-1"><%= recipe.name %></p>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No items found</p>
+        <% } %>
+
+        <% if(typeof food.tacos !== 'undefined' && food.tacos.length > 0) { %>
+            <% food.tacos.forEach(function(recipe, index){ %>
+            <div class="col-md">
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <img src="/uploads/<%= recipe.image %>"class="hover-zoom img-fluid shadow2-strong max-img rounded" 
+                    loading="lazy"    
+                    alt="<%= recipe.name %>">
+                </a>
+                <p class="pt-1"><%= recipe.name %></p>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No items found</p>
+        <% } %>
+
+    </div>
+
+</div>
+<!-- latest recipes -->
+
+
+
+<div class="container mt-5 mb-5">
+
+    <div class="row">
+        <div class="col-md mt-3">
+            <div>
+                <h1>Favorite Ideas</h1>
+                <p class="lead">
+                    Share ideas and recipes with others for great home meals. Absolutely free to 
+                    sign up and post your recipes. Subscribe to sell your ideas.
+                </p>
+                <a href="/explore-latest" class="mt-3 btn btn-primary btn-lg px-4 me-md-2">Latest Recipes</a>
+                <a href="/explore-random" class="mt-3 btn btn-outline-primary btn-lg px-4 me-md-2">Random Search</a>
+            </div>
+        </div>
+        <div class="col-md mt-3">
+            <img 
+            src="/img/food1.png" 
+            class="img-fluid shadow-2-strong rounded" 
+            loading="lazy" 
+            alt="recipes" 
+        />
+        </div>
+    </div>
+</div>
+
+<!-- recipe submit -->
+<section class="px-4 py-5 my-5 text-center">
+    <img src="/img/submitRecipe.png" loading="lazy" class="d-block mx-auto img-fluid" alt="publish your recipe">
+    <h1 class="display-5">Publish your recipe for free</h1>
+    <p class="lead mx-auto mb-4">
+        Publish your recipe and get it to dozens of people for free.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/submit-recipe" class="btn btn-primary btn-dark">Submit Recipe</a>
+    </div>
+    
+</section>
+<!-- recipe submit -->

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+
+    <h1 class="display-5 pt-5">Search</h1>
+    <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                  Recipes
+              </li>
+            </ol>
+        </nav>
+
+    <div class="row mt-5 row-cols-2 row-col-lg-5 g-2 g-lg-3 mb-4">
+        <% if(recipe != '') { %>
+            <% recipe.forEach(function(recipe, index){ %>
+            <div class="col-md">
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <img src="/uploads/<%= recipe.image %>"class="hover-zoom img-fluid shadow2-strong max-img rounded" 
+                    loading="lazy"    
+                    alt="<%= recipe.name %>">
+                </a>
+                <p class="pt-1"><%= recipe.name %></p>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No items found</p>
+        <% } %>
+    </div>
+
+</div>

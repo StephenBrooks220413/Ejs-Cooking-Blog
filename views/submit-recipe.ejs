@@ -1,0 +1,75 @@
+<div class="container mt-5">
+    <br>
+    <h1 class="display-5 mt-5">Submit Your Recipe</h1>
+
+    <hr>
+    <p class="lead text-danger">
+        Share your idea with sveral others that sent in to share with the World.
+    </p>
+
+    <!-- <% if(infoSubmitObj != ''){ %>
+      <div class="alert col-8" role="alert" data-mdb-color="success">
+        <%= infoSubmitObj %>
+      </div>
+    <%}%> -->
+
+    <form action="/submit-recipe" enctype="multipart/form-data" method="post">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" name="name" id="name" class="form-control" />
+              <label for="name of recipe" required class="form-label">Name of Recipe</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input -->
+        <div class="col-12 mb-4">
+            <label class="form-label" for="Category">Category</label>
+            <select name="category" required class="form-control" id="category" aria-label="category">
+                <option selected>Select Category</option>
+                <option value="Thai">Thai</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Bbq">Bbq</option>
+                <option value="Seafood">Seafood</option>
+                <option value="American">American</option>
+                <option value="Indian">Indian</option>
+                <option value="Mexican">Mexican</option>
+            </select>
+        </div>
+      
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" maxlength="155" required name="Description" id="Description" rows="4"></textarea>
+        </div>
+      
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="ingredients">Ingredients</label>
+            <input type="text" required name="Ingredients" maxlength="550" id="Ingredients" class="form-control" />
+        </div>
+      
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email">Email</label>
+          <input type="email" name="email" required id="email" class="form-control" />
+        </div>
+      
+        <!-- Image input -->
+        <div class="col-12 mb-4">
+            <label class="form-label" for="image" >Image</label>
+          <input type="file" id="image" required name="image" accept="image/*" class="form-control" />
+        </div>
+      
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="directions">Instructions</label>
+          <textarea class="form-control" required name="directions" id="directions" rows="4"></textarea>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="submit" onclick="alert('message sent')" class="btn btn-primary btn-block mb-4">Submit Recipe</button>
+      </form>
+</div>
